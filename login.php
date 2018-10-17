@@ -98,6 +98,8 @@ $db->select_db("$dbname");
    {
      $_SESSION['username']=$username;
      $_SESSION['id']=$row[0];
+     $_SESSION['role']=$row[7];
+     $_SESSION['phone']=$row[8];
 	 Header("location:index.php");
    }
    else

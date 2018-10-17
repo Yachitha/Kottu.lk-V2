@@ -1,4 +1,8 @@
 <!DOCTYPE html>
+<?php   
+ session_start();
+ include("connection.php"); //include the config
+?>
 <html lang="en">
 
 <head>
@@ -42,6 +46,14 @@
                 <li class="nav-item">
                     <a class="nav-link" href="./cart.php">CART</a>
                 </li>
+                <?php 
+                if(isset($_SESSION['username'])){
+    echo "<li class='nav-item'>
+    <a class='btn btn btn-warning' href='logout.php'>Logout</a>
+    </li>";
+}
+
+?>
             </ul>
         </div>
     </nav>
@@ -100,7 +112,7 @@
                             <tr>
                                 <th scope="row">4</th>
                                 <td>
-                                    <a href="" type="button" class="btn btn-primary ad-btn" style="line-height: 3em;">Report
+                                    <a href="./reportgeneration.php" type="button" class="btn btn-primary ad-btn" style="line-height: 3em;">Report
                                         generation</a>
                                 </td>
                             </tr>

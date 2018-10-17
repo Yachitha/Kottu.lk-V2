@@ -104,7 +104,7 @@ $db->select_db("$dbname");
   <td style='padding:.75pt .75pt .75pt .75pt'>
   <p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto'><b><span
   style='font-size:8.5pt;font-family:"Arial","sans-serif";mso-fareast-font-family:
-  "Times New Roman";color:black'>Country***</span></b><o:p></o:p></p>
+  "Times New Roman";color:black'>Address</span></b><o:p></o:p></p>
   </td>
   <td style='padding:.75pt .75pt .75pt .75pt'>
   <p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto'><span
@@ -113,6 +113,23 @@ $db->select_db("$dbname");
   </td>
  </tr>
  <u1:p></u1:p>
+
+
+<u1:p></u1:p>
+ <tr style='mso-yfti-irow:5'>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto'><b><span
+  style='font-size:8.5pt;font-family:"Arial","sans-serif";mso-fareast-font-family:
+  "Times New Roman";color:black'>Phone</span></b><o:p></o:p></p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto'><span
+  style='font-size:9.0pt;font-family:"Arial","sans-serif";mso-fareast-font-family:
+  "Times New Roman"'><INPUT TYPE="text" NAME="phone"></span><o:p></o:p></p>
+  </td>
+ </tr>
+ <u1:p></u1:p>
+
  <tr style='mso-yfti-irow:6'>
   <td style='padding:.75pt .75pt .75pt .75pt'>
   <p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto'><b><span
@@ -165,10 +182,11 @@ $db->select_db("$dbname");
    $username=$_POST['username'];
    $password=$_POST['password'];
    $country=$_POST['country'];
+   $phone=$_POST['phone'];
     //quary
    if ($db->query("INSERT INTO prof
-    (username,email,fname,lname,country,password)
-    VALUES ('$username','$email','$fname','$lname','$country','$password')"))
+    (username,email,fname,lname,country,password,phone)
+    VALUES ('$username','$email','$fname','$lname','$country','$password','$phone')"))
     print "<script>document.write('Account created :)');</script>";
 	
 	else {
