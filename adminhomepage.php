@@ -31,6 +31,7 @@
                 <li class="nav-item">
                     <a class="nav-link" href="ad.php">Add Promotion</a>
                 </li>
+
                 
                 </li>
             </ul>

@@ -145,6 +145,14 @@
                                     <a href="./adminupdatedeletepromo.php" type="button" class="btn btn-primary ad-btn" style="line-height: 3em;">Delete / Update Promotions</a>
                                 </td>
                             </tr>
+                            
+                            <tr>
+                                <th scope="row">9</th>
+                                <td>
+                                    <a href="./export.php" type="button" class="btn btn-primary ad-btn" style="line-height: 3em;">Export</a>
+                                </td>
+                            </tr>
+
                         </tbody>
                     </table>
                 </div>
