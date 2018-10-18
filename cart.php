@@ -77,6 +77,7 @@
                              echo '<th>Delete</th>';
                             echo '</tr>';
                             echo '</thead>';
+                            $total = number_format(0,2);
 
                             while($row = mysqli_fetch_array($result))
                             {
@@ -85,17 +86,20 @@
                             $result1 = mysqli_query($conn, "SELECT name FROM product WHERE productId='{$productId}'");
                             $newrow = mysqli_fetch_array($result1);
 
+                            $result2 = mysqli_query($conn, "SELECT name FROM product WHERE productId='{$productId}'");
+
                             echo "<tr>";
                             echo "<td >" . $row['orderDetailId'] . "</td>";
                             echo "<td >" . $newrow['name'] . "</td>";
-                            echo "<td>" . $row['amount'] . "</td>";
+                            echo "<td>" . number_format($row['amount'],2) . "</td>";
+                            $total+=$row['amount'];
 
                             // echo "<td><input class='btn btn-success'  type='submit' formaction='ProcessComplete.php' formmethod='post' value='Edit'/></td>";
                              echo "<td>
 
                              <form action='deletefromcart.php' method='post'>
                              <input type='hidden' id='productid' name='productiddeleted' value=".$row['orderDetailId'].">
-                             
+
                              <input class='btn btn-primary' type='submit' value='DELETE'/>
                              </form>";
                             echo "</tr>";
@@ -103,7 +107,6 @@
 
                             }
                             echo "</table>";
-
                             mysqli_close($conn);
                             ?>
 
@@ -111,13 +114,16 @@
                 <br>
             </div>
             </form>
-                   <!-- Checkout Button -->
-                    <div>
-                        <button href="" type="button" class="btn btn-danger btn-chk">Checkout</button>
-                    </div>
-
-
-                    <!-- image line -->
+            <div class="container">
+              <!-- Checkout Button -->
+                 <form class="spacer-xs" action="CheckOut.php" method="post">
+                     <label for="Total" class="col-sm-2 form-control">Total Price (Rs):</label>
+                     <input type="text" class="col-sm-2 form-control" name="total" value='<?=number_format($total,2);?>' readonly>
+                     <br>
+                   <button type="submit" class="btn btn-danger btn-chk">Checkout</button>
+                 </form>
+            </div>
+                  <!-- image line -->
                     <div class="row img-row">
                         <div class="col-lg-3 col-md-6 col-sm-12">
                             <img src="./Images/Kottu Roti 1.jpg" alt="Kottu1" class="img-thumbnail">
