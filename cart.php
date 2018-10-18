@@ -64,7 +64,7 @@
                                 die("Connection failed: " . $conn->connect_error);
                             }
 
-                            $result = mysqli_query($conn,"SELECT * FROM orderdetail");
+                            $result = mysqli_query($conn,"SELECT * FROM orderdetail where order_user_userId='{$_SESSION['id']}'");
 
 
                             echo '<table class="table table-hover table-dark">';

@@ -1,6 +1,18 @@
+
+<?php 
+session_start();
+
+if($_SESSION['role'] !=1){
+    header("Location: http://localhost/site/home.php");
+    exit;   
+}
+
+?>
+
+
+
 <!DOCTYPE html>
 <?php   
- session_start();
  include("connection.php"); //include the config
 ?>
 <html lang="en">
@@ -112,7 +124,7 @@
                             <tr>
                                 <th scope="row">4</th>
                                 <td>
-                                    <a href="./reportgeneration.php" type="button" class="btn btn-primary ad-btn" style="line-height: 3em;">Report
+                                    <a href="./export.php" type="button" class="btn btn-primary ad-btn" style="line-height: 3em;">Report
                                         generation</a>
                                 </td>
                             </tr>
@@ -128,7 +140,7 @@
                             <tr>
                                 <th scope="row">6</th>
                                 <td>
-                                    <a href="./vieworder.php" type="button" class="btn btn-primary ad-btn" style="line-height: 3em;">Orders</a>
+                                    <a href="./processorder.php" type="button" class="btn btn-primary ad-btn" style="line-height: 3em;">Orders</a>
                                 </td>
                             </tr>
 
@@ -145,13 +157,14 @@
                                     <a href="./adminupdatedeletepromo.php" type="button" class="btn btn-primary ad-btn" style="line-height: 3em;">Delete / Update Promotions</a>
                                 </td>
                             </tr>
-                            
+
                             <tr>
-                                <th scope="row">9</th>
+                                <th scope="row">8</th>
                                 <td>
-                                    <a href="./export.php" type="button" class="btn btn-primary ad-btn" style="line-height: 3em;">Export</a>
+                                    <a href="./xlgen.php" type="button" class="btn btn-primary ad-btn" style="line-height: 3em;">XL REPORT</a>
                                 </td>
                             </tr>
+
 
                         </tbody>
                     </table>

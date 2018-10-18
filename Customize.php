@@ -51,6 +51,14 @@
                 <li class="nav-item">
                     <a class="nav-link" href="./cart.php">CART</a>
                 </li>
+                <?php 
+if(isset($_SESSION['username'])){
+    echo "<li class='nav-item'>
+    <a class='btn btn btn-warning' href='logout.php'>Logout</a>
+    </li>";
+}
+
+?>
             </ul>
         </div>
     </nav>

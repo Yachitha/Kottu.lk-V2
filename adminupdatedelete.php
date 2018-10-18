@@ -1,3 +1,13 @@
+<?php 
+session_start();
+
+if($_SESSION['role'] !=1){
+    header("Location: http://localhost/site/home.php");
+    exit;   
+}
+
+?>
+
 
 <?php require_once('connection.php'); ?>
 
@@ -19,7 +29,7 @@
     <section class="view intro-2 hm-gradient">
         <div class="full-bg-img">
             <div class="container flex-center">
-                <h3 class="cart-head">SITHARA</h3>
+                <h3 class="cart-head">Update Or Delete Products</h3>
                 <div class="d-flex align-items-center content-height">
                     <div class="row flex-center pt-5 mt-3">
                         <div class="container">

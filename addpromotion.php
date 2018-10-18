@@ -1,4 +1,12 @@
-<?php session_start(); ?>
+<?php 
+session_start();
+
+if($_SESSION['role'] !=1){
+    header("Location: http://localhost/site/home.php");
+    exit;   
+}
+
+?>
 <?php require_once('connection.php');?>
 <?php
   if (!empty($_SESSION['message'])) {

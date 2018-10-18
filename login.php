@@ -100,6 +100,8 @@ $db->select_db("$dbname");
      $_SESSION['id']=$row[0];
      $_SESSION['role']=$row[7];
      $_SESSION['phone']=$row[8];
+     $_SESSION['address']=$row[5];
+
 	 Header("location:index.php");
    }
    else

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 18, 2018 at 05:03 AM
+-- Generation Time: Oct 18, 2018 at 04:48 PM
 -- Server version: 10.1.34-MariaDB
 -- PHP Version: 7.2.8
 
@@ -30,10 +30,23 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `delivery` (
   `deliveryId` int(11) NOT NULL,
-  `status` varchar(45) DEFAULT NULL,
+  `statuss` varchar(45) DEFAULT NULL,
   `order_orderId` int(11) NOT NULL,
   `order_user_userId` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `delivery`
+--
+
+INSERT INTO `delivery` (`deliveryId`, `statuss`, `order_orderId`, `order_user_userId`) VALUES
+(20, 'Delivered', 24, 5),
+(21, 'Delivered', 26, 1),
+(22, 'Delivered', 26, 1),
+(23, 'Delivered', 27, 1),
+(24, 'Delivered', 42, 2),
+(25, 'Delivered', 44, 2),
+(26, 'Delivered', 43, 2);
 
 -- --------------------------------------------------------
 
@@ -47,6 +60,14 @@ CREATE TABLE `feedback` (
   `rate` decimal(10,0) DEFAULT NULL,
   `user_userId` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `feedback`
+--
+
+INSERT INTO `feedback` (`feedbackId`, `comment`, `rate`, `user_userId`) VALUES
+(1, 'bnbb', '6', 10),
+(2, 'Good', '10', 10);
 
 -- --------------------------------------------------------
 
@@ -67,7 +88,7 @@ CREATE TABLE `ingridient` (
 --
 
 INSERT INTO `ingridient` (`ingridientId`, `name`, `amount`, `type`, `product_productId`) VALUES
-(3, 'Rotti', '200', 'carb', 1),
+(3, 'Rottii', '200', 'carb', 1),
 (4, 'String hoppers', '250', 'carb', 4),
 (9, 'Carrot', '60', 'vege', 2),
 (10, 'Leeks', '50', 'vege', 2),
@@ -108,7 +129,17 @@ INSERT INTO `menu` (`id`, `quantity`) VALUES
 (8, ''),
 (9, ''),
 (10, ''),
-(11, '');
+(11, ''),
+(12, ''),
+(13, ''),
+(14, ''),
+(15, ''),
+(16, ''),
+(17, ''),
+(18, ''),
+(19, ''),
+(20, ''),
+(21, '');
 
 -- --------------------------------------------------------
 
@@ -131,10 +162,8 @@ CREATE TABLE `orderdetail` (
 --
 
 INSERT INTO `orderdetail` (`orderDetailId`, `quantity`, `amount`, `product_productId`, `order_orderId`, `order_user_userId`, `order_address`) VALUES
-(12, '1', '370', 1, 14, 2, 'ghj'),
-(19, '2', '860', 1, 21, 2, 'ghj'),
-(20, '1', '410', 1, 22, 2, 'ghj'),
-(21, '1', '250', 1, 23, 1, 'ghj');
+(46, '5', '900', 6, 48, 1, 'India'),
+(47, '2', '560', 4, 49, 2, 'SL');
 
 -- --------------------------------------------------------
 
@@ -154,30 +183,31 @@ CREATE TABLE `orderr` (
 --
 
 INSERT INTO `orderr` (`orderId`, `date`, `subTotal`, `user_userId`) VALUES
-(1, '2018-10-15 02:58:35', 330.00, 2),
-(2, '2018-10-15 02:59:49', 330.00, 2),
-(2, '2018-10-16 02:41:47', 430.00, 3),
-(3, '2018-10-16 02:44:18', 350.00, 3),
-(4, '2018-10-16 18:28:26', 590.00, 3),
-(5, '2018-10-16 18:37:37', 1300.00, 3),
-(6, '2018-10-16 19:20:37', 465.00, 3),
-(7, '2018-10-16 20:06:31', 630.00, 3),
-(8, '2018-10-16 20:09:37', 390.00, 3),
-(9, '2018-10-16 20:11:32', 460.00, 3),
-(10, '2018-10-17 18:30:19', 560.00, 2),
-(11, '2018-10-17 18:44:53', 700.00, 2),
-(12, '2018-10-17 19:35:12', 360.00, 2),
-(13, '2018-10-18 02:30:09', 530.00, 2),
-(14, '2018-10-18 02:45:39', 370.00, 2),
-(15, '2018-10-18 04:01:20', 1770.00, 2),
-(16, '2018-10-18 04:03:33', 460.00, 2),
-(17, '2018-10-18 04:07:24', 485.00, 2),
-(18, '2018-10-18 04:10:46', 345.00, 2),
-(19, '2018-10-18 04:11:44', 975.00, 2),
-(20, '2018-10-18 04:35:19', 680.00, 2),
-(21, '2018-10-18 04:51:30', 860.00, 2),
-(22, '2018-10-18 04:52:07', 410.00, 2),
-(23, '2018-10-18 04:58:01', 250.00, 1);
+(25, '2018-10-19 06:57:58', 460.00, 5),
+(26, '2018-10-19 06:59:37', 770.00, 5),
+(27, '2018-10-19 07:00:48', 620.00, 1),
+(28, '2018-10-18 08:34:04', 380.00, 1),
+(29, '2018-10-18 08:40:09', 640.00, 1),
+(30, '2018-10-18 12:07:34', 100.00, 0),
+(31, '2018-10-18 12:08:38', 100.00, 0),
+(32, '2018-10-18 12:10:20', 500.00, 0),
+(33, '2018-10-21 12:11:07', 750.00, 0),
+(34, '2018-10-20 12:12:06', 750.00, 0),
+(35, '2018-10-18 12:32:02', 320.00, 1),
+(36, '2018-10-18 12:32:24', 320.00, 1),
+(37, '2018-10-18 12:33:41', 540.00, 1),
+(38, '2018-10-18 12:34:25', 600.00, 1),
+(39, '2018-10-18 12:34:38', 180.00, 1),
+(40, '2018-10-18 12:36:03', 560.00, 2),
+(41, '2018-10-18 12:42:09', 270.00, 1),
+(42, '2018-10-18 12:42:18', 250.00, 1),
+(43, '2018-10-21 12:42:49', 560.00, 1),
+(44, '2018-10-18 12:43:29', 560.00, 2),
+(45, '2018-10-18 12:43:45', 320.00, 2),
+(46, '2018-10-18 12:44:52', 4000.00, 2),
+(47, '2018-10-18 12:46:04', 200.00, 2),
+(48, '2018-10-25 13:29:27', 900.00, 1),
+(49, '2018-10-18 16:21:41', 560.00, 2);
 
 -- --------------------------------------------------------
 
@@ -257,7 +287,8 @@ INSERT INTO `prof` (`id`, `username`, `email`, `fname`, `lname`, `country`, `pas
 (1, 'dmitra', 'mitradibaakr@yandex,com', 'Dibakar', '', 'India', '12345678', 1, 774130566),
 (2, 'Manel', 'm@gmail.com', 'Manel', 'Pathirana', 'SL', '1234', 0, 702337406),
 (3, 'Geeth', 'g@gmail.com', 'geeth', 'prageeth', 'lk', '1234', 0, 415613205),
-(4, 'Sandun', 's@gmail.com', 'sandun', 'isuru', 's matara lk', '1234', 0, 774152633);
+(4, 'Sandun', 's@gmail.com', 'sandun', 'isuru', 's matara lk', '1234', 0, 774152633),
+(5, 'isuru', 'i@gmail.com', 'isuru', 'dilshan', 'pakgama', '1234', 0, 32323);
 
 -- --------------------------------------------------------
 
@@ -325,7 +356,7 @@ CREATE TABLE `user` (
 
 INSERT INTO `user` (`userId`, `email`, `password`, `type`, `firstName`, `lastName`, `address`, `mobile`) VALUES
 (1, 'fghjk', '81649e878544df5d791cfc7c598929e52d9d4c08', NULL, 'dfghj@dshfgsjhdfg', '', 'ghj', 'fghj'),
-(2, 'fghjk', '81649e878544df5d791cfc7c598929e52d9d4c08', NULL, 'dfghj@dshfgsjhdfg', '', 'ghj', 'fghj'),
+(2, 'fghjk', '81649e878544df5d791cfc7c598929e52d9d4c08', NULL, 'dfghj@dshfgsjhdfg', '', 'ghdfdfsdfsd', 'fghj'),
 (3, 'sdjhfsdjf', 'd8a18bb2235573a1cfb5fc4312cb5151247d0f7d', NULL, 'jkfghj@dgfsdfyt', 'sjdfhsdjg', 'jsdfjhgje', 'sgjdfhg'),
 (4, '', 'da39a3ee5e6b4b0d3255bfef95601890afd80709', NULL, '', '', '', ''),
 (5, '', 'da39a3ee5e6b4b0d3255bfef95601890afd80709', NULL, '', '', '', ''),
@@ -343,8 +374,7 @@ INSERT INTO `user` (`userId`, `email`, `password`, `type`, `firstName`, `lastNam
 -- Indexes for table `delivery`
 --
 ALTER TABLE `delivery`
-  ADD PRIMARY KEY (`deliveryId`,`order_orderId`,`order_user_userId`),
-  ADD KEY `fk_delivery_order2` (`order_orderId`,`order_user_userId`);
+  ADD PRIMARY KEY (`deliveryId`,`order_orderId`,`order_user_userId`);
 
 --
 -- Indexes for table `feedback`
@@ -421,13 +451,13 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `delivery`
 --
 ALTER TABLE `delivery`
-  MODIFY `deliveryId` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `deliveryId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT for table `feedback`
 --
 ALTER TABLE `feedback`
-  MODIFY `feedbackId` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `feedbackId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `ingridient`
@@ -439,13 +469,13 @@ ALTER TABLE `ingridient`
 -- AUTO_INCREMENT for table `menu`
 --
 ALTER TABLE `menu`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT for table `orderdetail`
 --
 ALTER TABLE `orderdetail`
-  MODIFY `orderDetailId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `orderDetailId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
 
 --
 -- AUTO_INCREMENT for table `product`
@@ -457,7 +487,7 @@ ALTER TABLE `product`
 -- AUTO_INCREMENT for table `prof`
 --
 ALTER TABLE `prof`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `promo`

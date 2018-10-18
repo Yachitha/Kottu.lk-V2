@@ -3,8 +3,8 @@
 <?php session_start();
 
 if(isset($_SESSION['username'])){
-    echo "Welcome ".$_SESSION['username'];
-    echo "Welcome ".$_SESSION['id'];
+    // echo "Welcome ".$_SESSION['username'];
+    // echo "Welcome ".$_SESSION['id'];
 }
 
 ?>
@@ -32,7 +32,7 @@ $presults = $connection->query($product);
 
 <body>
 <nav class="navbar navbar-expand-lg navbar-light" id="nav-color">
-        <img src="" alt="">
+        <!-- <img src="" alt=""> -->
         <a class="navbar-brand" href="#">KOTTU.LK</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
             aria-expanded="false" aria-label="Toggle navigation">
@@ -94,12 +94,19 @@ if(isset($_SESSION['username'])){
                                           ?>
                                           <dt class="menu-text"><?=$products['name'];?></dt>
                                           <p class="text-light bg-dark menu-text2"><?=$products['amount'];?></p>
-                                          <div class="form-group text-pad">
-                                            <input name="quantity" type="text" class="form-control" id="menuquantity" placeholder="Enter the quantity">
-                                          </div>
-                                          <div class="col-lg-12">
-                                            <button type="submit" class="btn btn-danger menu-btn">ADD TO CART</button>
-                                          </div>
+                                          <form class="spacer-xs" method="post" action="addToCart.php">
+                                            <div class="form-group text-pad">
+                                                <input name="qty" type="text" class="form-control" id="menuquantity" placeholder="Enter the quantity">
+                                                <?php
+                                                echo "<input type='hidden' name='total' value=".$products['amount']." id='total'>";
+                                                echo "<input type='hidden' name='selectedCarb' value=".$products['productId']." id='selectedCarb'>";
+                                                ?>
+                                                
+                                            </div>
+                                            <div class="col-lg-12">
+                                                <button type="submit" class="btn btn-danger menu-btn">ADD TO CART</button>
+                                            </div>
+                                          </form>
                                       </div>
 
                                     </div>

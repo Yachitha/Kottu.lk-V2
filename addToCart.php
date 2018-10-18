@@ -1,21 +1,22 @@
 <?php session_start(); ?>
 <?php require_once('connection.php'); ?>
 <?php
-  if (isset($_POST['submit'])) {
+  // if (isset($_POST['submit'])) {
     $qty = $_POST['qty'];
     $total = $_POST['total'];
     $productId = $_POST['selectedCarb'];
     //$userId=3;
     if (isset($_SESSION['id'])) {
       $userId = $_SESSION['id'];
+      $address=$_SESSION['address'];
     }
-    $query1 = "SELECT * FROM user WHERE userId='{$userId}'";
+    $query1 = "SELECT * FROM prof WHERE id='{$userId}'";
     $result1 = mysqli_query($connection, $query1);
     $user = mysqli_fetch_array($result1);
-    $address = $user['address'];
-    if ($address==null) {
-      $address = "";
-    }
+    // $address = $user['country'];
+    // if ($address==null) {
+    //   $address = "";
+    // }
     if ($qty == 0) {
       $qty = 1;
     } else if ($qty>1){
@@ -50,5 +51,5 @@
     }else {
       echo "error";
     }
-  }
+  // }
 ?>

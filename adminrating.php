@@ -1,3 +1,14 @@
+<?php 
+session_start();
+
+if($_SESSION['role'] !=1){
+    header("Location: http://localhost/site/home.php");
+    exit;   
+}
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -30,7 +41,7 @@
     <section class="view intro-2 hm-gradient">
         <div class="full-bg-img">
             <div class="container flex-center">
-                <h3 class="cart-head">ADMIN LOGIN</h3>
+                <h3 class="cart-head">View Rating</h3>
                 <div class="d-flex align-items-center content-height">
                     <div class="row flex-center pt-5 mt-3">
                         <div class="container">

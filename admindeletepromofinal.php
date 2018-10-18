@@ -1,7 +1,7 @@
 <?php
 
 $productId = (int)($_POST["productid"]);
-echo $productId;
+//echo $productId;
 
 $servername = "localhost";
 $username = "root";
